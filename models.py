@@ -8,7 +8,7 @@ import re
 
 file_name = 'Form nghiên cứu.csv'
 df = pd.read_csv(file_name)
-# 20 câu tình huống (Cột 6 đến 25)
+# 20 câu tình huống (Cột 7 đến 26)
 scenario_cols = df.columns[7:26]
 
 def parse_woa(text):
@@ -120,3 +120,39 @@ plt.figure(figsize=(8, 5))
 sns.heatmap(pivot, annot=True, cmap='YlGnBu')
 plt.title('Bản đồ nhiệt WOA', fontweight='bold')
 plt.savefig('chart_4_heatmap.png')
+
+#biểu đồ 5: Distribution of Trust
+clean_df['Group_Combined'] = clean_df['Risk_Label'] + " - " + clean_df['Subj_Label']
+group_order = [
+    'Thấp - Khách quan', 'Thấp - Chủ quan',
+    'Vừa - Khách quan', 'Vừa - Chủ quan',
+    'Cao - Khách quan', 'Cao - Chủ quan'
+]
+group_stats = clean_df.groupby('Group_Combined')['WOA'].mean().reindex(group_order).reset_index()
+plt.figure(figsize=(12, 7))
+palette = sns.color_palette("coolwarm", 6)
+ax = sns.barplot(
+    data=group_stats,
+    x='Group_Combined',
+    y='WOA',
+    hue='Group_Combined',
+    palette=palette,
+    order=group_order
+)
+if ax.get_legend(): ax.get_legend().remove()
+for p in ax.patches:
+    ax.annotate(format(p.get_height(), '.2f'),
+                (p.get_x() + p.get_width() / 2., p.get_height()),
+                ha = 'center', va = 'center',
+                xytext = (0, 9),
+                textcoords = 'offset points',
+                fontweight='bold', color='black')
+
+plt.title('TỶ LỆ CHỌN CON NGƯỜI (WOA) THEO 6 NHÓM NGỮ CẢNH', fontsize=15, fontweight='bold', pad=20)
+plt.xlabel('Nhóm Ngữ cảnh (Rủi ro - Tính chất)', fontsize=12)
+plt.ylabel('Tỷ lệ chọn (0: AI, 1: Con người)', fontsize=12)
+plt.ylim(0, 1.1)
+plt.axhline(0.5, color='red', linestyle='--', alpha=0.5, label='Mức cân bằng (50/50)')
+plt.legend()
+plt.tight_layout()
+plt.savefig('chart_5_groups_proportion.png')

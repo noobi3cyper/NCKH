@@ -3,29 +3,29 @@ GIAI DOAN 2: DU BAO HANH VI
 ==============================================================================
 Dep. Variable:                    WOA   R-squared:                       0.998
 Model:                            OLS   Adj. R-squared:                  0.998
-Method:                 Least Squares   F-statistic:                 1.110e+05
+Method:                 Least Squares   F-statistic:                 9.923e+04
 Date:                Wed, 04 Feb 2026   Prob (F-statistic):               0.00
-Time:                        10:03:38   Log-Likelihood:                 1186.3
-No. Observations:                 512   AIC:                            -2367.
-Df Residuals:                     509   BIC:                            -2354.
+Time:                        10:37:47   Log-Likelihood:                 1088.9
+No. Observations:                 474   AIC:                            -2172.
+Df Residuals:                     471   BIC:                            -2159.
 Df Model:                           2                                         
 Covariance Type:            nonrobust                                         
 =================================================================================
                     coef    std err          t      P>|t|      [0.025      0.975]
 ---------------------------------------------------------------------------------
-Intercept        -0.1123      0.001    -99.874      0.000      -0.114      -0.110
-Trust             1.5962      0.003    471.030      0.000       1.590       1.603
-Conflict         -0.1123      0.001    -99.874      0.000      -0.114      -0.110
-Risk              0.0565      0.001     41.958      0.000       0.054       0.059
-Conflict:Risk     0.0565      0.001     41.958      0.000       0.054       0.059
+Intercept        -0.1115      0.001    -96.151      0.000      -0.114      -0.109
+Trust             1.5965      0.004    445.313      0.000       1.589       1.604
+Conflict         -0.1115      0.001    -96.151      0.000      -0.114      -0.109
+Risk              0.0547      0.001     38.312      0.000       0.052       0.057
+Conflict:Risk     0.0547      0.001     38.312      0.000       0.052       0.057
 ==============================================================================
-Omnibus:                       34.468   Durbin-Watson:                   1.549
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               37.713
-Skew:                          -0.637   Prob(JB):                     6.47e-09
-Kurtosis:                       2.620   Cond. No.                     8.05e+15
+Omnibus:                       33.417   Durbin-Watson:                   1.594
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               30.411
+Skew:                          -0.553   Prob(JB):                     2.49e-07
+Kurtosis:                       2.439   Cond. No.                     1.30e+16
 ==============================================================================
 
 Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-[2] The smallest eigenvalue is 2.1e-29. This might indicate that there are
+[2] The smallest eigenvalue is 7.39e-30. This might indicate that there are
 strong multicollinearity problems or that the design matrix is singular.
